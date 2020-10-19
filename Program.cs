@@ -35,7 +35,11 @@ namespace T_L_N_o_v_e_l_a_s.net
             //     -i "https://hgt5e3.cfeucdn.com/secip/5705/aQk0RAvmeGyoWpRyRaOTjw/MTkwLjQwLjE4NC4xNjY=/1603098000/hls-vod-s10/flv/api/files/videos/2019/07/19/1563551364540ev.mp4.m3u8" \
             //     -c copy 108.mkv
             //listaFinal.ToList().ForEach(x => Console.WriteLine($"{x.Key} - {x.Value}"));
-            listaFinal.ToList().ForEach(x => Console.WriteLine($"ffmpeg  -i \"{x.Value}\" -c copy {x.Key}"));
+            listaFinal.ToList().ForEach(x =>
+            {
+                if (!string.IsNullOrEmpty(x.Value))
+                    Console.WriteLine($"ffmpeg  -i \"{x.Value}\" -c copy {x.Key}");
+            });
 
         }
 
